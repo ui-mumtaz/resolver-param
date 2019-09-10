@@ -1,15 +1,21 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
 import { ContactusComponent } from './contactus.component';
+import { CustomPreloadingStrategy } from './custom-preloading-strategy';
 
 
 const routes: Routes = [
+  {path: 'company', loadChildren: './company/company.module#CompanyModule', data: { preload : true, delay: true}},
+  {path: 'person', loadChildren: './person/person.module#PersonModule', data: { preload : true, delay: false}},
+
   {path : 'contactus', component:ContactusComponent},
-  {path : '', redirectTo:'/company', pathMatch:'full'},
+  {path : '', redirectTo:'', pathMatch:'full'},
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  imports: [RouterModule.forRoot(routes, 
+    {preloadingStrategy: CustomPreloadingStrategy})],
+  exports: [RouterModule],
+  providers: [CustomPreloadingStrategy]
 })
 export class AppRoutingModule { }

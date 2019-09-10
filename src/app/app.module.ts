@@ -1,18 +1,29 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { CompanyModule } from './company/company.module';
+import { PersonModule } from './person/person.module';
+import { AppRoutingModule } from './app-routing.module';
+import { ContactusComponent } from './contactus.component';
+
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
   imports: [
     BrowserModule,
+    CompanyModule,
+    PersonModule,
     AppRoutingModule
+  ],
+  declarations: [
+    AppComponent,
+    ContactusComponent
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+  constructor() {
+    console.log('App Module Loaded.... 1')
+  }
+ }

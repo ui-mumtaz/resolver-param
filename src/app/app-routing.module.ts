@@ -6,7 +6,7 @@ import { CustomPreloadingStrategy } from './custom-preloading-strategy';
 
 const routes: Routes = [
   {path: 'company', loadChildren: './company/company.module#CompanyModule', data: { preload : true, delay: true}},
-  {path: 'person', loadChildren: './person/person.module#PersonModule', data: { preload : true, delay: false}},
+  {path: 'person', loadChildren: './person/person.module#PersonModule', data: { preload : true, delay: true}},
 
   {path : 'contactus', component:ContactusComponent},
   {path : '', redirectTo:'', pathMatch:'full'},

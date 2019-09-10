@@ -4,7 +4,7 @@ import { PersonComponent } from './person.component';
 import { PersonListComponent } from './person-list/person-list.component';
 
 const personRoutes: Routes = [
-  {path: 'person', component: PersonComponent, children:[
+  {path: '', component: PersonComponent, children:[
     {path: 'person-list', component: PersonListComponent}
   ]}
 ]
